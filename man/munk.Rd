@@ -1,0 +1,29 @@
+\name{munk}
+
+\docType{data}
+
+\alias{munk}
+
+\title{Munk's (1966) temperature profile}
+
+\description{Temperature profile digitized from the left-hand panel of Munk's
+    Figure 1.}
+
+\usage{data(munk)}
+
+\examples{
+\dontrun{
+library(oce)
+data(munk)
+attach(munk)
+plot(temperature, depth,
+     ylim=rev(range(depth)), xlab="Temperature [degC]", ylab="Depth [km]")
+detach(munk)
+}
+}
+
+\references{
+Walter H. Munk, 1966.  Abyssal recipes.  Deep-Sea Research, 13, 707-730.
+}
+
+\keyword{datasets}
