@@ -4,13 +4,15 @@ beaufort
 buoy
 coastlineWorldFine
 coastlineWorldMedium
+conveyor
 drag
 endeavour
 geosecs235
 giss
-landsat
+gs
 levitus
 munk
+nao
 oceans
 papa
 redfieldNC
@@ -19,6 +21,7 @@ redfieldPlankton
 riley
 schmitt
 secchi
+soi
 topo2
 turbulence
 wilson
