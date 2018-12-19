@@ -8,36 +8,35 @@
 
 \description{A data frame containing the Southern Oscillation Index with
     columns named \code{year} for decimal year (sampled monthly and represented
-    at mid-month) and \code{index} for the index.  The data frame was created
-    in September of 2014 as follows.
-\preformatted{
-f <- "http://www.cgd.ucar.edu/cas/catalog/climind/SOI.signal.ascii"
-d <- as.matrix(read.table(f, header=FALSE))
-nYear <- nrow(d)
-startYear <- d[1, 1]
-endYear <- d[nYear, 1]
-## Centre times to mid-month
-year <- 1 / 24 + seq(from=startYear, by=1/12, length.out=nYear*12)
-index <- as.vector(t(d[,-1]))
-## Trim -99.99 values (may be some at start or end)
-missing <- index < -90
-year <- year[!missing]
-index <- index[!missing]
+    at mid-month) and \code{index} for the index.}
+
+\details{The data were downloaded from [1] and processed with the following
+    \preformatted{
+library(ncdf4)
+url <- "https://www.cgd.ucar.edu/cas/catalog/climind/SOI.nc"
+download.file(url, "SOI.nc")
+f <- nc_open("SOI.nc")
+year <- as.vector(ncvar_get(f, "TIME"))
+index <- as.vector(ncvar_get(f, "SOI_SIGNAL"))
+ok <- is.finite(index)
+year <- year[ok]
+index <- index[ok]
 soi <- data.frame(year=year, index=index)
-}
+    }
 }
 
 \examples{
 data(soi, package="ocedata")
-## Source website graphs 1950 to 2014 (although they smooth data)
 recent <- subset(soi, year > 1950)
 plot(recent$year, recent$index, type='l', xlab="Year", ylab="SOI")
 }
 
 \usage{data(soi)}
 
-\source{\url{http://www.cgd.ucar.edu/cas/catalog/climind/SOI.signal.ascii}}
-    
+\source{1. The source data were downloaded as
+    \code{http://www.cgd.ucar.edu/cas/catalog/climind/SOI.nc} on August 11,
+    2017.}
+
 \author{Dan Kelley}
 
 \keyword{datasets}

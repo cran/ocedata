@@ -14,7 +14,6 @@
 \examples{
 \dontrun{
 data(wilson, package="ocedata")
-attach(wilson)
 plot(wilson$Age, wilson$Distance, xlab="Age [My]", ylab="Distance [km]",
      xlim=c(125,0), ylim=c(0,4000))
 abline(0,4000/125)
@@ -31,7 +30,7 @@ abline(m, col='red')
     of spreading rate.}
 
 \references{
-    J. Tuzo Wilson, 1963. Evidence from islands on the spreading of ocean floors.  \emph{Nature}, 197(4867):536-538.  \url{//dx.doi.org/10.1038/197536a0.}
+    J. Tuzo Wilson, 1963. Evidence from islands on the spreading of ocean floors.  \emph{Nature}, 197(4867):536-538.  \code{//dx.doi.org/10.1038/197536a0}
 }
 
 \keyword{datasets}

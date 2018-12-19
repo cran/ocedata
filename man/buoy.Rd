@@ -6,17 +6,17 @@
 
 \title{Measurements made at a buoy off Halifax}
 
-\description{Hourly observations made between March 3rd and April 18th of 2014,
-    at the Environment Canada 3-metre discus buoy situated at (44.502N 63.403W)
-    near Halifax Harbour.
+\description{This is a data frame holding hourly observations made between
+    March 3 and April 18 of 2014, at the Environment Canada 3-metre discus
+    buoy situated at (44.502N 63.403W) near Halifax Harbour.  The contents are
+    as follows; other items in the original data file are ignored.
 
-    The contents of the \code{buoy} data frame are as follows (other items in the
-    data file are ignored).
     \describe{
-        \item{\code{t}}{time of observation, in \code{POSISct} format}
+        \item{\code{time}}{time of observation, in \code{POSIXct} format}
         \item{\code{wind}}{wind speed in m/s}
         \item{\code{direction}}{direction from which the wind is blowing,
             measured in degrees clockwise of true North.}
+        \item{\code{gust}}{gust speed in m/s}
         \item{\code{height}}{wave height in metres}
         \item{\code{period}}{wave period in seconds}
         \item{\code{pa}}{atmospheric pressure in kPa}
@@ -35,9 +35,9 @@
 library(oce)
 data(buoy, package="ocedata")
 par(mfrow=c(3,1))
-oce.plot.ts(buoy$t, buoy$wind, ylab="Wind Speed [m/s]")
-oce.plot.ts(buoy$t, buoy$height, ylab="Wave height [m]")
-oce.plot.ts(buoy$t, buoy$period, ylab="Wave period [s]")
+oce.plot.ts(buoy$time, buoy$wind, ylab="Wind Speed [m/s]")
+oce.plot.ts(buoy$time, buoy$height, ylab="Wave height [m]")
+oce.plot.ts(buoy$time, buoy$period, ylab="Wave period [s]")
 }
 }
 
@@ -55,9 +55,9 @@ d[d == "MM"] <- NA
 ## put oldest first
 t <- t[o]
 d <- d[o,]
-footPerMetre <- 39.3701 / 12
 direction <- as.numeric(d[,6])
 wind <- as.numeric(d[,7])
+gust <- as.numeric(d[,8])[o]
 height <- as.numeric(d[,9])
 period <- as.numeric(d[,10])
 pa <- as.numeric(d[,13])
@@ -65,10 +65,14 @@ Ta <- as.numeric(d[,14])
 Tw <- as.numeric(d[,15])
 }
 }
-    
-\references{\enumerate{\item\url{http://www.ndbc.noaa.gov/NDBCHandbookofAutomatedDataQualityControl2009.pdf}
+
+\references{
+    \enumerate{
+        \item\url{http://www.ndbc.noaa.gov/NDBCHandbookofAutomatedDataQualityControl2009.pdf}
         \item\url{http://www.ndbc.noaa.gov/measdes.shtml}
-        \item\url{http://www.ndbc.noaa.gov/station_page.php?station=44258} }}
+        \item\url{http://www.ndbc.noaa.gov/station_page.php?station=44258}
+        }
+}
 
 \keyword{datasets}
 
