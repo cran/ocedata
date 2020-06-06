@@ -12,12 +12,12 @@
 \usage{data(endeavour)}
 
 \examples{
-\dontrun{
-library(oce)
-data(coastlineWorld)
 data(endeavour, package="ocedata")
-mapPlot(coastlineWorld, type='l', proj='+proj=moll', fill='lightgray')
-mapPoints(endeavour$longitude, endeavour$latitude, pch=20, cex=2/3, col='red')
+\dontrun{
+    library(oce)
+    data(coastlineWorld, package="oce")
+    oce::mapPlot(coastlineWorld, type='l', proj='+proj=moll', fill='lightgray')
+    oce::mapPoints(endeavour$longitude, endeavour$latitude, pch=20, cex=2/3, col='red')
 }
 }
 

@@ -14,22 +14,19 @@
 \usage{data(redfieldPlankton)}
 
 \examples{
-\dontrun{
-library(ocedata)
-data(redfieldPlankton)
+data(redfieldPlankton, package="ocedata")
 par(mfrow=c(1,2))
 boxplot(redfieldPlankton$Nitrogen)
 abline(h=16.7, col='gray')
 boxplot(redfieldPlankton$Phosphorus)
 abline(h=1.85, col='gray')
 }
-}
 
 \source{Data entered verbatim (sans italics for species name) by Dan Kelley
     from [2] Table II.}
 
 \references{
-    
+
     1. Dan Kelley, in preparation. Oceanographic Analysis with R.  Springer Verlag.
 
     2. Alfred C. Redfield, 1934.  On the proportions of organic derivations in sea

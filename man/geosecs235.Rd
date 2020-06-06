@@ -13,9 +13,8 @@
 \examples{
 data(geosecs235, package="ocedata")
 \dontrun{
-library(oce)
-## Similar to Figure 10 of Kelley and Van Scoy (1999)
-plotProfile(geosecs235, xtype="tritium", type='p', ylim=c(600, 0))
+    ## Similar to Figure 10 of Kelley and Van Scoy (1999)
+    oce::plotProfile(geosecs235, xtype="tritium", type='p', ylim=c(600, 0))
 }
 }
 

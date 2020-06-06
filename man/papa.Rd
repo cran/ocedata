@@ -20,16 +20,8 @@
 \usage{data(papa)}
 
 \examples{
-\dontrun{
-library(oce)
 data(papa, package="ocedata")
-
 par(mfrow=c(3,1))
-## Page 1: images
-imagep(papa$t, papa$z, papa$temperature, col=oceColorsJet, filledContour=TRUE)
-imagep(papa$t, papa$z, papa$salinity, col=oceColorsJet, filledContour=TRUE)
-imagep(papa$t, papa$z, papa$sigmaTheta, col=oceColorsJet, filledContour=TRUE)
-## Page 2: lineplots
 xlim <- c(min(papa$t)-3*28*86400, max(papa$t)) # extra for legend
 plot(papa$t, papa$temperature[,1], type='l', xlim=xlim,
      xlab="", ylab="Temperature", ylim=range(papa$temperature))
@@ -46,7 +38,6 @@ plot(papa$t, papa$sigmaTheta[,1], type='l', xlim=xlim,
 for (i in 2:dim(papa$sigmaTheta)[2])
     lines(papa$t, papa$sigmaTheta[,i], col=i, lwd=2)
 legend("topleft", title="z [m]", lwd=2, legend=papa$z, col=1:length(papa$z), bg="white")
-}
 }
 
 \source{Salinity was inferred from

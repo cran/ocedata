@@ -13,9 +13,8 @@
 
 \examples{
 \dontrun{
-library(oce)
-data(schmitt, package="ocedata")
-plotTS(as.ctd(schmitt$S, schmitt$theta, 0))
+    data(schmitt, package="ocedata")
+    oce::plotTS(as.ctd(schmitt$S, schmitt$theta, 0), eos="unesco")
 }
 }
 
